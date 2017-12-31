@@ -1,0 +1,20 @@
+{
+"manifest_version": 2,
+    "name": "Bittrex USD helper",
+    "description": "This extension will add USD price next to the BTC value when trading!",
+    "version": "0.10",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://bittrex.com/Balance",
+                "https://bittrex.com/Market/Index?MarketName=BTC-*"
+            ],
+            "js": [
+                "ExchangeService.js",
+                "USDPriceObserver.js",
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
