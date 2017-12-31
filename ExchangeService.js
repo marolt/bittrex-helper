@@ -1,4 +1,5 @@
 function ExchangeService() {
+
     var getJSON = function (url, callback) {
         var xhr = new XMLHttpRequest();
         xhr.open('GET', url, true);
@@ -8,6 +9,7 @@ function ExchangeService() {
         };
         xhr.send();
     };
+
     var getUSDValue = function (success, error) {
         return this.getJSON('https://blockchain.info/ticker', function (err, data) {
             if (err === null) {
@@ -16,6 +18,7 @@ function ExchangeService() {
             return error(err);
         });
     };
+
 
     return {
         getUSDValue: getUSDValue,

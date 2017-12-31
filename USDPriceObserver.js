@@ -36,7 +36,7 @@ function USDPriceObserver() {
                     var value = mutation.target.textContent;
                     if (mutation.target.parentElement.innerText.indexOf('$') === -1) {
                         var el = document.createElement("small");
-                        el.textContent = "($" + (value *  BTCtoUSD).toFixed(2) + ")";
+                        el.textContent = "(" + (value *  BTCtoUSD).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) + ")";
                         el.style.paddingRight = "10px";
                         mutation.target.parentElement.prepend(el);
                     }
@@ -56,7 +56,7 @@ function USDPriceObserver() {
                 input.onmouseover = input.onchange = function (mutation) {
                     var value = mutation.target.value;
                     mutation.target.parentElement.lastElementChild.innerHTML = "BTC<small style=\"position:  absolute;left: 110px;z-index: 999;\">"
-                        + "($" + (value *  BTCtoUSD).toFixed(2) + ")" + "</small>";
+                        + "(" + (value *  BTCtoUSD).toLocaleString('en-US', {style: 'currency', currency: 'USD'}) + ")" + "</small>";
                 };
             });
 
